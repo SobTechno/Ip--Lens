@@ -1,0 +1,266 @@
+:root {
+  --bg: #000;
+  --surface: #0e0e0e;
+  --line: #1f1f1f;
+  --text: #f2f2f2;
+  --muted: #7d7d7d;
+  --red: #e11d2e;
+  --red-soft: rgba(225, 29, 46, .14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+body {
+  width: 340px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased
+}
+
+.card {
+  padding: 16px 18px 12px
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .2px
+}
+
+.mark {
+  display: block;
+  border-radius: 5px
+}
+
+.icon-btn {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color .15s, border-color .15s
+}
+
+.icon-btn:hover {
+  color: var(--text);
+  border-color: #3a3a3a
+}
+
+.icon-btn.spin svg {
+  animation: spin .7s linear infinite
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red);
+  border-radius: 12px;
+  padding: 14px 14px 14px 16px;
+  margin-bottom: 14px
+}
+
+.label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.tag {
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 10px;
+  font-weight: 600
+}
+
+.ip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px
+}
+
+.ip {
+  font: 600 22px/1.2 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color: var(--text);
+  word-break: break-all;
+  letter-spacing: .2px
+}
+
+.ip.long {
+  font-size: 15px
+}
+
+.copy {
+  background: var(--red);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font: 600 12px inherit;
+  font-family: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: filter .15s, background .15s
+}
+
+.copy:hover:not(:disabled) {
+  filter: brightness(1.15)
+}
+
+.copy:disabled {
+  background: #262626;
+  color: #666;
+  cursor: default
+}
+
+.copy.done {
+  background: #fff;
+  color: #000
+}
+
+.details {
+  display: flex;
+  flex-direction: column
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 2px;
+  border-bottom: 1px solid var(--line)
+}
+
+.row:last-child {
+  border-bottom: 0
+}
+
+.k {
+  color: var(--muted)
+}
+
+.v {
+  text-align: right;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  min-width: 0
+}
+
+.v>span {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px
+}
+
+.mono {
+  font-family: ui-monospace, Consolas, monospace
+}
+
+.flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  object-fit: cover;
+  border: 1px solid #2a2a2a
+}
+
+.skeleton {
+  color: transparent !important;
+  background: #161616;
+  border-radius: 4px;
+  animation: pulse 1.2s ease-in-out infinite
+}
+
+i.skeleton {
+  font-style: normal
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .45
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 18px 0 8px;
+  color: var(--muted)
+}
+
+.error p {
+  margin-bottom: 12px
+}
+
+.error[hidden],
+[hidden] {
+  display: none !important
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #444
+}
+
+.dot.ok {
+  background: var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft)
+}
+
+button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px
+}
+
+@media (prefers-reduced-motion:reduce) {
+  * {
+    animation: none !important;
+    transition: none !important
+  }
+}

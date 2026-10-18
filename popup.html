@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IP Lens</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="card">
+    <header class="top">
+      <div class="brand"><img class="mark" src="icons/icon.svg" alt="" width="20" height="20"><span>IP Lens</span></div>
+      <button id="refresh" class="icon-btn" title="Refresh" aria-label="Refresh">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </header>
+
+    <section class="hero">
+      <div class="label">Your public IP address <span id="ver" class="tag" hidden></span></div>
+      <div class="ip-row">
+        <div id="ip" class="ip skeleton">000.000.000.000</div>
+        <button id="copy" class="copy" disabled>Copy</button>
+      </div>
+    </section>
+
+    <section id="details" class="details">
+      <div class="row"><span class="k">Country</span><span class="v" id="country"><i class="skeleton">Loading</i></span></div>
+      <div class="row"><span class="k">City</span><span class="v" id="city"><i class="skeleton">Loading</i></span></div>
+      <div class="row"><span class="k">Provider</span><span class="v" id="isp"><i class="skeleton">Loading</i></span></div>
+      <div class="row"><span class="k">ASN</span><span class="v mono" id="asn"><i class="skeleton">Loading</i></span></div>
+      <div class="row"><span class="k">Time zone</span><span class="v" id="tz"><i class="skeleton">Loading</i></span></div>
+    </section>
+
+    <section id="error" class="error" hidden>
+      <p>Couldn't reach the lookup service.<br>Check your connection and try again.</p>
+      <button id="retry" class="copy">Try again</button>
+    </section>
+
+    <footer class="foot"><span class="dot" id="dot"></span><span id="status">Looking up…</span></footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
